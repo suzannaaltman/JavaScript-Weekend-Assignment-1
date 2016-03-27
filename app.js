@@ -45,7 +45,7 @@ $(document).ready(function(){
 		totalPaidOut += amtToPay;
 	}
 
-
+//total paid out sent to HTML
 	$( ".inner2" ).append(("Total paid out: $" + (totalPaidOut).toLocaleString()) + '.');
 
 	console.log(initialList);
@@ -79,11 +79,11 @@ $(document).ready(function(){
 		return percent;
 	}
 
-	// function to determine amount covered
+	// function to determine amount covered, sends list to HTML
 	var amtToPay = 0;
 	function amtCovered(claim){
 		amtToPay = claim["visitCost"] * percentCovered(claim);
-		$(".inner").append('Paid out $' + Math.round(amtToPay).toLocaleString() + ' for ' + claim["patientName"] + '.<br>');
+		$(".inner").append('<li>Paid out $' + Math.round(amtToPay).toLocaleString() + ' for ' + claim["patientName"] + '.<br></li>');
 		return '$' + (amtToPay).toLocaleString();
 
 	}
